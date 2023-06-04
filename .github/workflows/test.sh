@@ -6,4 +6,4 @@ pwd
 ls -al
 
 echo '-----> Creating ssh key'
-echo "$SSH_PRIVATE_KEY"
+echo ${{secrets.SSH_PRIVATE_KEY}}
