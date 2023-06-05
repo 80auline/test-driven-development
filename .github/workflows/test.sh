@@ -3,11 +3,11 @@ set -x
 
 echo '-----> Project directory'
 pwd
-ls -al
+# ls -al
 
-echo '-----> Creating ssh key: secrets.RTEST in base64'
+echo '-----> Creating ssh key'
 mkdir ~/.ssh
-echo "$RTEST" | base64 --decode -i > ~/.ssh/id_ed25519
+echo "$RTEST" > ~/.ssh/id_ed25519
 chmod 600 ~/.ssh/id_ed25519 # permissioning
 eval "$(ssh-agent -s)" # setting ssh environment variable
 
