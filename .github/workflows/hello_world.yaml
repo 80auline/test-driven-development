@@ -12,6 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: 'Grab and set up variable'
-      run: echo "artifactname=${{ secrets.SSH_PRIVATE_KEY }}" >> $RTEST
+      run: echo "RTEST=${{ secrets.SSH_PRIVATE_KEY }}" >> $GITHUB_ENV
     - name: 'Run script test.sh'
       run: bash ./.github/workflows/test.sh
