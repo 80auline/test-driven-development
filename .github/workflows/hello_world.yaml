@@ -18,9 +18,12 @@ jobs:
 
   test2:
     runs-on: ubuntu-latest
+    env:
+    SSH_AUTH_SOCK: /tmp/ssh_agent.sock
     steps:
       - run: mkdir -p ~/.ssh/
       - run: echo "{{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
       - run: chmod 600 ~/.ssh/id_ed25519
       - run: eval `ssh-agent -s`
+      - run: ssh-agent -a $SSH_AUTH_SOCK > /dev/null 
       - run: ssh-add ~/.ssh/id_ed25519
